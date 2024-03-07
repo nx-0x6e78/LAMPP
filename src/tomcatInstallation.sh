@@ -13,7 +13,7 @@ sudo ln -s /opt/tomcat/apache-tomcat-10.1.19 /opt/tomcat/latest
 sudo chown -R tomcat: /opt/tomcat
 sudo sh -c 'sudo chmod +x /opt/tomcat/latest/bin/*.sh'
 
-sudo cp ./src/other/tomcat.service /etc/systemd/system/tomcat.service
+sudo cp ./other/tomcat.service /etc/systemd/system/tomcat.service
 
 sudo systemctl daemon-reload
 # sudo systemctl enable --now tomcat
