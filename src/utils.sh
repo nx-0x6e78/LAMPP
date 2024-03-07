@@ -28,7 +28,7 @@ menu() {
   print " | 5) Manage WebApps       |"
   print " | 0) Quit                 |"
   print " +-------------------------+"
-  print " | v1.0                    |"
+  print " | v1.2                    |"
   print " +-------------------------+"
 }
 
