@@ -13,7 +13,7 @@ createWebApp() {
 }
 
 deleteWebApp() {
-  if [ -z "$(ls -A $path)" ]; then
+  if [ -z "$(sudo ls -A $path)" ]; then
     print "There are no WebApps to delete!" 0
     sleep 1
     manageWebApps
@@ -21,9 +21,7 @@ deleteWebApp() {
 
   readOpt "Insert the folder name: " dname false
 
-  [ -d "$path/$dname" ] && sudo rm -rf $path/$dname || print "This WebApp doesn't exist!" 0
-
-  sleep 1
+  sudo [ -d "$path/$dname" ] && sudo rm -rf $path/$dname || print "This WebApp doesn't exist!" 0
 }
 
 listWebApps() {

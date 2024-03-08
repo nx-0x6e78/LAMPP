@@ -14,8 +14,12 @@ manageServices() {
 
   readOpt "> " opt false
 
-  [[ ${opt} == 0 ]] && main
-  [[ -n ${opt} ]] && sudo systemctl $opt
+  case "${opt}" in
+  "stop *") sudo systemctl stop apache2 tomcat mariadb ;;
+  "start *") sudo systemctl start apache2 tomcat mariadb ;;
+  0) main ;;
+  *) [[ -n ${opt} ]] && sudo systemctl ${opt} ;;
+  esac
 
   manageServices
 }
@@ -33,11 +37,17 @@ manageWebApps() {
   echo
 
   case "${opt}" in
-    1) createWebApp ;;
-    2) listWebApps; deleteWebApp ;;
-    3) listWebApps; sleep 2 ;;
-    0) main ;;
-    *) manageWebApps ;;
+  1) createWebApp ;;
+  2)
+    listWebApps
+    deleteWebApp
+    ;;
+  3)
+    listWebApps
+    sleep 2
+    ;;
+  0) main ;;
+  *) manageWebApps ;;
   esac
 
   manageWebApps
