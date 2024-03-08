@@ -21,6 +21,7 @@ manageServices() {
   *) [[ -n ${opt} ]] && sudo systemctl ${opt} ;;
   esac
 
+  sleep 1s
   manageServices
 }
 
