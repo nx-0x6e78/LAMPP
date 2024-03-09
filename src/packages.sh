@@ -3,7 +3,7 @@ checkPackages() {
 
   print "Checking packages..."
   
-  sudo systemctl --all --type service | grep -q tomcat && print "Tomcat already installed" 1 || print "Tomcat has to be installed" 0
+  sudo [ -d /opt/tomcat/ ] && print "Tomcat already installed" 1 || print "Tomcat has to be installed" 0
   pkgs=("apache2" "mariadb-server")
 
 
