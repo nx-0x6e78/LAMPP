@@ -14,8 +14,8 @@ print() {
 
 openFolders() {
   echo
-  sudo xdg-open $path
-  sudo xdg-open /var/www/html
+  sudo -E xdg-open $path
+  sudo -E xdg-open /var/www/html
   main
 }
 
